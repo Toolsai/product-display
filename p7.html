@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bauhaus Digital | Grid Support & Inquiry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Archivo+Black&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bauhaus: {
+                            blue: '#002f5d',
+                            yellow: '#ffcc00',
+                            red: '#e4002b',
+                            dark: '#121212',
+                            light: '#f4f4f4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        bauhaus: ['Archivo Black', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .map-overlay {
+            background-color: #002f5d;
+            mix-blend-mode: multiply;
+        }
+        .bauhaus-grid-bg {
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .input-box {
+            border: 2px solid #000;
+            transition: all 0.2s ease;
+        }
+        .input-box:focus {
+            outline: none;
+            border-color: #e4002b;
+            box-shadow: 4px 4px 0px #ffcc00;
+        }
+        .bauhaus-btn {
+            position: relative;
+            transition: transform 0.1s;
+        }
+        .bauhaus-btn:active {
+            transform: translate(2px, 2px);
+        }
+        .bauhaus-btn::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-bauhaus-light font-sans text-bauhaus-dark min-h-screen overflow-x-hidden">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="fixed top-0 w-full z-50 bg-white border-b-2 border-bauhaus-dark">
+        <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2 cursor-pointer" data-goto="p1">
+                <div class="w-8 h-8 bg-bauhaus-red"></div>
+                <div class="w-8 h-8 bg-bauhaus-blue rounded-full"></div>
+                <div class="w-8 h-8 border-2 border-bauhaus-yellow rotate-45"></div>
+                <span class="font-bauhaus text-xl tracking-tighter ml-4 hidden md:block uppercase">Bauhaus Digital</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-10 font-bold uppercase text-xs tracking-widest">
+                <button data-goto="p2" class="hover:text-bauhaus-red transition-colors">Collection</button>
+                <button data-goto="p4" class="hover:text-bauhaus-red transition-colors">Lab</button>
+                <button data-goto="p5" class="hover:text-bauhaus-red transition-colors">Manifesto</button>
+                <button data-goto="p7" class="text-bauhaus-red border-b-2 border-bauhaus-red">Support</button>
+            </div>
+
+            <div class="flex items-center space-x-6">
+                <button data-goto="p6" class="relative">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <span class="absolute -top-2 -right-2 bg-bauhaus-yellow text-[10px] w-4 h-4 rounded-full flex items-center justify-center border border-black font-bold">2</span>
+                </button>
+                <button class="md:hidden"><i class="fa-solid fa-bars text-xl"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-20 min-h-screen flex flex-col md:flex-row relative">
+        
+        <!-- LEFT: FORM SECTION -->
+        <section class="w-full md:w-1/2 p-8 md:p-16 bg-white z-10 flex flex-col justify-center">
+            <div class="max-w-xl mx-auto w-full">
+                <header class="mb-12">
+                    <h1 class="font-bauhaus text-5xl md:text-7xl leading-none mb-4 uppercase">
+                        Support<br><span class="text-bauhaus-blue">Grid</span>
+                    </h1>
+                    <div class="h-1.5 w-32 bg-bauhaus-red mb-6"></div>
+                    <p class="text-lg font-medium max-w-sm">Contact our technical department for custom inquiries or order assistance.</p>
+                </header>
+
+                <form class="space-y-6" onsubmit="event.preventDefault();">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex flex-col">
+                            <label class="font-bauhaus text-xs uppercase tracking-widest mb-2">Subject Name</label>
+                            <input type="text" placeholder="John Doe" class="input-box p-4 font-bold text-sm bg-gray-50">
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="font-bauhaus text-xs uppercase tracking-widest mb-2">Email Address</label>
+                            <input type="email" placeholder="user@domain.bau" class="input-box p-4 font-bold text-sm bg-gray-50">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="font-bauhaus text-xs uppercase tracking-widest mb-2">Inquiry Category</label>
+                        <select class="input-box p-4 font-bold text-sm bg-gray-50 appearance-none cursor-pointer">
+                            <option>Technical Support</option>
+                            <option>Order Tracking</option>
+                            <option>Custom Modification</option>
+                            <option>Media Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="font-bauhaus text-xs uppercase tracking-widest mb-2">Message Specification</label>
+                        <textarea rows="4" placeholder="Detail your technical requirement..." class="input-box p-4 font-bold text-sm bg-gray-50"></textarea>
+                    </div>
+
+                    <div class="pt-4 flex flex-col space-y-4">
+                        <button data-goto="p8" class="bauhaus-btn bg-bauhaus-blue text-white px-10 py-4 font-bauhaus uppercase tracking-widest hover:bg-bauhaus-red transition-colors w-full md:w-auto">
+                            Send Inquiry <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                        <p class="text-[10px] font-bold uppercase tracking-widest opacity-60">
+                            By submitting, you agree to our <button data-goto="p7840" class="underline hover:text-bauhaus-red">Privacy Protocol</button>.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- RIGHT: MAP & INFO SECTION -->
+        <section class="w-full md:w-1/2 relative min-h-[400px] md:min-h-screen">
+            <!-- Background Map with Filter -->
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://picsum.photos/seed/map/1200/1200');"></div>
+            <div class="absolute inset-0 map-overlay opacity-80"></div>
+            
+            <!-- Graphic Bauhaus Elements Overlay -->
+            <div class="absolute top-0 left-0 w-full h-full bauhaus-grid-bg opacity-30"></div>
+            
+            <!-- Floating Contact Info Card -->
+            <div class="absolute bottom-12 left-12 right-12 md:left-12 md:right-auto md:w-96 bg-bauhaus-yellow p-8 border-4 border-bauhaus-dark shadow-[12px_12px_0px_#e4002b]">
+                <h3 class="font-bauhaus text-2xl uppercase mb-6">Central Bureau</h3>
+                
+                <div class="space-y-6 font-bold uppercase text-xs tracking-tighter">
+                    <div class="flex items-start">
+                        <div class="w-6 h-6 bg-bauhaus-dark text-white flex items-center justify-center mr-4 shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <p>12 Grid Station,<br>Dessau Architecture District,<br>Germany 06846</p>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-6 h-6 bg-bauhaus-dark text-white flex items-center justify-center mr-4 shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <p>+49 (0) 340 6508-0</p>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-6 h-6 bg-bauhaus-dark text-white flex items-center justify-center mr-4 shrink-0">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <p>Mon - Fri: 08:00 - 18:00<br>Sat: 10:00 - 14:00</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex space-x-4">
+                    <div class="w-10 h-10 border-2 border-bauhaus-dark flex items-center justify-center hover:bg-bauhaus-dark hover:text-white transition-all cursor-pointer">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="w-10 h-10 border-2 border-bauhaus-dark flex items-center justify-center hover:bg-bauhaus-dark hover:text-white transition-all cursor-pointer">
+                        <i class="fa-brands fa-twitter"></i>
+                    </div>
+                    <div class="w-10 h-10 border-2 border-bauhaus-dark flex items-center justify-center hover:bg-bauhaus-dark hover:text-white transition-all cursor-pointer">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Absolute Geometry Accents -->
+            <div class="absolute top-10 right-10 flex flex-col space-y-2 pointer-events-none hidden md:flex">
+                <div class="w-20 h-2 bg-bauhaus-red"></div>
+                <div class="w-20 h-2 bg-white"></div>
+                <div class="w-20 h-2 bg-bauhaus-dark"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER MINI -->
+    <footer class="bg-bauhaus-dark text-white p-6 border-t-2 border-bauhaus-dark">
+        <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-bold uppercase tracking-widest">
+            <p>&copy; 2023 Bauhaus Digital Labs. All Rights Reserved.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <button data-goto="p7840" class="hover:text-bauhaus-yellow transition-colors">Privacy Policy</button>
+                <button data-goto="p5" class="hover:text-bauhaus-yellow transition-colors">System Terms</button>
+                <button data-goto="p1" class="hover:text-bauhaus-yellow transition-colors">Emergency Reset</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple navigation simulation
+        document.querySelectorAll('[data-goto]').forEach(element => {
+            element.addEventListener('click', () => {
+                const target = element.getAttribute('data-goto');
+                console.log(`Navigating to: ${target}`);
+                // In a real environment, this would handle routing
+                // For this prototype, we'll just flash the screen or visually indicate change
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.style.opacity = '1';
+                    // Optional: alert(`Redirecting to ${target}`);
+                }, 300);
+            });
+        });
+
+        // Add visual transition to body
+        document.body.style.transition = 'opacity 0.4s ease';
+    </script>
+
+<script>
+  // Pro Prototype - Static Navigation Shim
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.addEventListener('click', (e) => {
+      const target = e.target.closest('[data-goto]');
+      if (target) {
+        e.preventDefault();
+        const pageId = target.getAttribute('data-goto');
+        // Navigate to the corresponding HTML file
+        window.location.href = pageId + '.html';
+      }
+    });
+  });
+</script>
+</body>
+</html>
