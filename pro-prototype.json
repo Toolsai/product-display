@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "topic": "# 專案名稱：包浩斯數位：元素系列 (Bauhaus Digital: Elemental Series)\n\n## 專案概述 (Overview)\n這是一個高端電子產品展示平台，旨在將中世紀現代包浩斯美學（幾何形狀、原色應用與網格系統）與現代 3D 互動元素融合，以突顯頂級硬體產品的工藝感。\n\n## 設計系統 (Design System)\n- **配色方案 (Color Palette)：**\n    - `bg-[#F2F2F2]` (米白畫布底色)\n    - `bg-[#E63946]` (包浩斯紅 - 主要動作/按鈕)\n    - `bg-[#1D3557]` (深邃藍 - 次要元素/標題)\n    - `bg-[#FFB703]` (亮點黃 - 強調標示)\n    - `text-[#1A1A1A]` (純黑文字 - 用於排版)\n- **字體樣式 (Typography)：**\n    - 標題：`font-sans font-black uppercase tracking-tighter` (幾何風格字體)\n    - 正文：`font-mono text-sm` (工業/技術風格等寬字體)\n- **視覺風格：** 2px 純黑實線邊框、無圓角（銳利邊角）、非對稱網格佈局，以及大量留白。\n\n## 頁面結構 (Page Topology)\n\n### p1: 入口門戶 (首頁)\n- **標題：** Bauhaus Digital | 首頁\n- **核心 UI 組件：** 巨大幾何排版、中央 `canvas` 預留空間（用於 Three.js 旋轉立方體）、紅色方塊「進入系列」按鈕。\n- **導航邏輯：** 「進入系列」 -> 跳轉至 **p2** | 「設計理念」 -> 跳轉至 **p5**。\n\n### p2: 產品目錄 (網格)\n- **標題：** 產品全系列\n- **核心 UI 組件：** 2x2 或 3x3 非對稱網格。每個產品卡片均有黑色粗邊框與色塊轉角（紅/藍/黃）。懸停 (Hover) 時改變背景色。\n- **導航邏輯：** 點擊「Model 01: Audio」 -> 跳轉至 **p3** | 「設計理念」 -> 跳轉至 **p5**。\n\n### p3: 產品詳情：Audio-X\n- **標題：** Model 01: Audio-X\n- **核心 UI 組件：** 大型產品剪影、網格化技術參數表、「互動檢視」切換開關、紅色「立即預購」按鈕。\n- **導航邏輯：** 「互動檢視」 -> 跳轉至 **p4** | 「立即下單」 -> 跳轉至 **p6** | 「返回」 -> 跳轉至 **p2**。\n\n### p4: 3D 互動實驗室\n- **標題：** 3D 空間探索\n- **核心 UI 組件：** 全螢幕 Three.js 容器。浮動式控制面板（包浩斯風格），包含「爆炸拆解」或「材質切換」的滑塊控制。\n- **導航邏輯：** 「退出實驗室」 -> 跳轉至 **p3**。\n\n### p5: 包浩斯宣言 (品牌理念)\n- **標題：** 我們的設計哲學\n- **核心 UI 組件：** 強調文字排版的佈局，闡述 1920 年代設計與現代電子的連結。採用「構成主義」海報風格。\n- **導航邏輯：** 「開始購物」 -> 跳轉至 **p2** | 「聯絡我們」 -> 跳轉至 **p7**。\n\n### p6: 極簡結帳流程 (購物車)\n- **標題：** 訂單摘要\n- **核心 UI 組件：** 極簡清單、粗黑線分隔價格項、紅色「確認訂購」按鈕、黃色「支援服務」連結。\n- **導航邏輯：** 「確認」 -> 跳轉至 **p8** | 「需要協助」 -> 跳轉至 **p7**。\n\n### p7: 支援與技術諮詢\n- **標題：** 聯絡我們 / 網格支援\n- **核心 UI 組件：** 簡單方框設計的表單欄位、粗體標籤。地圖預留位使用原色濾鏡覆蓋。\n- **導航邏輯：** 「提交」 -> 跳轉至 **p1** (返回起點)。\n\n### p8: 完成確認\n- **標題：** 訂單已確認\n- **核心 UI 組件：** 使用幾何圖形組合的極簡「感謝」圖像。訂單編號使用大型等寬字體顯示。\n- **導航邏輯：** 「回到首頁」 -> 跳轉至 **p1**。",
+  "createdAt": "2025-12-28T00:42:10.569Z",
+  "pages": [
+    {
+      "id": "p1",
+      "title": "Bauhaus Digital | Entry Portal",
+      "description": "The landing screen featuring high-impact geometric typography (uppercase, black, tight tracking) and a central Three.js canvas displaying a rotating interactive cube. A prominent red square button labeled 'ENTER SERIES' anchors the layout alongside a minimal link for 'Design Philosophy'.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p2",
+        "p5"
+      ]
+    },
+    {
+      "id": "p2",
+      "title": "Product Collection Grid",
+      "description": "An asymmetric grid layout showcasing the product lineup. Each product card is defined by a 2px solid black border and sharp 90-degree corners. Corner accents in red, blue, or yellow highlight card edges, and hover states trigger high-contrast background color shifts.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p1",
+        "p2",
+        "p5",
+        "p4",
+        "p7",
+        "p6",
+        "p3"
+      ]
+    },
+    {
+      "id": "p3",
+      "title": "Model 01: Audio-X Details",
+      "description": "A deep dive into the flagship audio product. Features a large high-contrast silhouette against a rice-white background. Technical specifications are presented in a rigid grid using monospaced typography. Includes a toggle for 'Interactive View' and a bold red 'Pre-order' button.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p2",
+        "p1",
+        "p5",
+        "p6",
+        "p4",
+        "p7"
+      ]
+    },
+    {
+      "id": "p4",
+      "title": "3D Interaction Lab",
+      "description": "A full-screen immersive Three.js environment. Users can manipulate the product model using a floating Bauhaus-style control panel. Sliders for 'Exploded View' and 'Material Swap' are styled with primary colors and sharp-edged geometry.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p3"
+      ]
+    },
+    {
+      "id": "p5",
+      "title": "The Bauhaus Manifesto",
+      "description": "A brand storytelling page utilizing Constructivist poster aesthetics. Large-scale typography and overlapping primary color circles and triangles create a narrative flow explaining the link between 1920s minimalism and modern hardware.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p2",
+        "p7"
+      ]
+    },
+    {
+      "id": "p6",
+      "title": "Minimalist Order Summary",
+      "description": "A highly functional checkout screen. The UI is stripped to the essentials: itemized lists separated by thick black lines, no rounded buttons, and monospaced price figures. A yellow link provides access to 'Support' while the red button confirms the order.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p8",
+        "p7"
+      ]
+    },
+    {
+      "id": "p7",
+      "title": "Grid Support & Inquiry",
+      "description": "A contact and support interface. Input fields are rectangular boxes with 2px borders. A contact map is visible in the background, stylized with a deep blue or yellow color filter to maintain the Bauhaus palette. Labels are set in bold geometric sans-serif.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p1",
+        "p2",
+        "p4",
+        "p5",
+        "p7",
+        "p6",
+        "p8",
+        "p7840"
+      ]
+    },
+    {
+      "id": "p8",
+      "title": "Order Confirmed",
+      "description": "A minimalist success screen. A geometric abstract composition (triangles and squares) forms a 'Thank You' visual. The order confirmation number is displayed in an oversized monospaced font, emphasizing the industrial/technical theme.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p1"
+      ]
+    },
+    {
+      "id": "p7840",
+      "title": "Privacy Policy",
+      "description": "Privacy Policy Page",
+      "status": "completed",
+      "suggestedNavigation": [],
+      "position": {
+        "x": 1805.9046909524475,
+        "y": 1245.4951651338367
+      }
+    }
+  ]
+}
